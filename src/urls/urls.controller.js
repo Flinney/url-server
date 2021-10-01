@@ -1,4 +1,3 @@
-const res = require("express/lib/response");
 const urls = require("../data/urls-data");
 const uses = require("../data/uses-data");
 
@@ -60,4 +59,5 @@ module.exports = {
   list,
   read: [isValidUrlId, read],
   update: [isValidUrlId, bodyHasHrefProperty, update],
+  isValidUrlId,
 };

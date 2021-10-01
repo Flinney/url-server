@@ -3,7 +3,7 @@ const usesRouter = require("../uses/uses.router");
 const methodNotAllowed = require("../methodNotAllowed");
 const controller = require("./urls.controller");
 
-router.route("/:urlId/uses", usesRouter);
+router.use("/:urlId/uses", controller.isValidUrlId, usesRouter);
 
 router
   .route("/:urlId")
