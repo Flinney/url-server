@@ -4,6 +4,7 @@ const app = express();
 const urlRouter = require("./urls/urls.router");
 const usesRouter = require("./uses/uses.router");
 
+//adding body to req object
 app.use(express.json());
 
 // TODO: Add code to meet the requirements and make the tests pass.
