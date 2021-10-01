@@ -37,11 +37,14 @@ const doesUrlMatchUse = (req, res, next) => {
 };
 
 //list
-const list = (req, res, next) => {
-  const urlId = res.locals.url?.id;
-  const result = urlId ? uses.filter((use) => use.urlId === urlId) : uses;
-  res.json({ data: result });
-};
+function list(req, res) {
+  const { urlId } = req.params;
+  let results = [...uses];
+  if (urlId) {
+    results = results.filter((use) => use.urlId === Number(urlId));
+  }
+  res.json({ data: results });
+}
 
 //read
 const read = (req, res, next) => {
