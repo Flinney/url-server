@@ -5,7 +5,11 @@ const controller = require("./urls.controller");
 
 router.route("/:urlId/uses", usesRouter);
 
-router.route("/:urlId").get().put().all(methodNotAllowed);
+router
+  .route("/:urlId")
+  .get(controller.read)
+  .put(controller.update)
+  .all(methodNotAllowed);
 
 router
   .route("/")
