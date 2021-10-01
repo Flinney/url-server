@@ -12,16 +12,6 @@ const isValidUseId = (req, res, next) => {
   next({ status: 404, message: `${useId} not valid.` });
 };
 
-const isValideDelete = (req, res, next) => {
-  const { useId } = req.params;
-  const foundUse = uses.find((use) => use.id === Number(useId));
-  if (foundUse) {
-    res.locals.use = foundUse;
-    return next();
-  }
-  next({ status: 405, message: `Use id not found: ${req.params.useId}` });
-};
-
 const doesUrlMatchUse = (req, res, next) => {
   const { urlId } = req.params;
   if (!urlId) {
